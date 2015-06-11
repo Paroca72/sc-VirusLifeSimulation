@@ -127,7 +127,11 @@ public class PlayManager : MonoBehaviour {
         // Get the screen bounds
         this.screenBounds = this.GetScreenBounds();
 
-	    // Start the simulation
+        // Reset the enviroment values and enable it
+        Enviroment.ResetValues();
+        Enviroment.enabled = true;
+
+        // Start the simulation
         this.Starter();
 	}
 	

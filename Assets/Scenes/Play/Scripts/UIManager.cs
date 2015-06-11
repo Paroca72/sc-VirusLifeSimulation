@@ -2,7 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class UIManager : MonoBehaviour {
+public class UIManager : MonoBehaviour
+{
 
     //-----------------------------------------
     // Private variables
@@ -23,13 +24,14 @@ public class UIManager : MonoBehaviour {
     // Private methods
 
     // Find all controls on UI
-    private void Finder() { 
+    private void Finder()
+    {
         // Find all texts
         Component[] texts = this.GetComponentsInChildren(typeof(Text), true);
 
         // Analize the result
         foreach (Text text in texts)
-        { 
+        {
             // Select case and assign the relative variable
             switch (text.name.ToString())
             {
@@ -82,7 +84,8 @@ public class UIManager : MonoBehaviour {
     }
 
     // Disable all input controls
-    private void DisableInputControls() { 
+    private void DisableInputControls()
+    {
         // Buttons
         this.insertButton.interactable = false;
 
@@ -92,7 +95,8 @@ public class UIManager : MonoBehaviour {
     }
 
     // Make a game over
-    private void GameOver() {
+    private void GameOver()
+    {
         // Disable all input controls
         this.DisableInputControls();
 
@@ -102,24 +106,46 @@ public class UIManager : MonoBehaviour {
 
 
     //-----------------------------------------
+    // Public methods
+
+    // Update the enviroments values
+    public void UpdateEnviroment()
+    {
+        // Fix the values
+        Enviroment.pH = (int)this.pHSlider.value;
+        Enviroment.temperature = (int)this.temperatureSlider.value;
+    }
+
+
+    //-----------------------------------------
     // Events
 
     // Use this for initialization
-	void Awake () {
-	    // Find all controls
+    void Awake()
+    {
+        // Find all controls
         this.Finder();
-	}
+    }
 
-    void Start() { 
+    void Start()
+    {
         // Save the current time
         this.startTime = System.DateTime.Now.Ticks;
+
+        // Set controls
+        this.pHSlider.value = Enviroment.pH;
+
+        this.temperatureSlider.value = Enviroment.temperature;
+        this.temperatureSlider.minValue = Settings.MINVALUE_TEMPERATURE;
+        this.temperatureSlider.maxValue = Settings.MAXVALUE_TEMPERATURE;
     }
-	
+
     // When the UI need to update
-    void OnGUI() { 
+    void OnGUI()
+    {
         // Update the sliders value
         this.pHValue.text = "( " + this.pHSlider.value + " )";
-        this.temperatureValue.text = "( " + this.temperatureSlider.value + " )";
+        this.temperatureValue.text = "( " + this.temperatureSlider.value + "° )";
 
         // Calc the elapsed time
         long deltaTime = System.DateTime.Now.Ticks - this.startTime;
@@ -136,7 +162,8 @@ public class UIManager : MonoBehaviour {
             // Game over
             this.GameOver();
         }
-        else {
+        else
+        {
             // Update the timer value
             this.timerValue.text = string.Format("{0:D2}:{1:D2}:{2:D2}", time.Minute, time.Second, milliseconds);
         }

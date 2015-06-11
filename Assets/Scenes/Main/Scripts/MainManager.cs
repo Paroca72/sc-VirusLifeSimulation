@@ -40,6 +40,9 @@ public class MainManager : MonoBehaviour {
 
     // Use this for initialization
 	void Start () {
+        // Reset the enviroment values
+        Enviroment.enabled = false;
+
 	    // Start the simulation
         this.Starter();
 	}

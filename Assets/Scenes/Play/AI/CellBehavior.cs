@@ -22,7 +22,7 @@ public class CellBehavior : MonoBehaviour
     // Private variables
 
     private List<GameObject> infections = null; // The list of infections
-    private float incubationTime = 0;           // The incubation duration in seconds
+    private float elapsed = 0;                  // Elapsed time
 
 
     //-----------------------------------------
@@ -76,31 +76,32 @@ public class CellBehavior : MonoBehaviour
             // Store it
             this.infections.Add(infection);
         }
-
-        // Start incubation
-        this.incubationTime = Settings.TIME_INCUBATION;
     }
 
     // Update infections
-    private void UpdateInfections()
+    private void UpdateInfections(float incubationTime)
     {
-        // Calc the progress
-        float progress = (Settings.TIME_INCUBATION - this.incubationTime) / Settings.TIME_INCUBATION;
-
-        // Fix progress
-        if (progress < 0) progress = 0;
-        if (progress > 1) progress = 1;
-
-        // Only if bigger
-        if (progress > START_INFECTION_SCALE)
+        try
         {
-            // Set the new scale for all infections
-            foreach (GameObject infection in this.infections)
+            // Calc the progress
+            float progress = this.elapsed / incubationTime;
+
+            // Fix progress
+            if (progress < 0) progress = 0;
+            if (progress > 1) progress = 1;
+
+            // Only if bigger
+            if (progress > START_INFECTION_SCALE)
             {
-                // Scale current
-                infection.transform.localScale = new Vector2(progress, progress);
+                // Set the new scale for all infections
+                foreach (GameObject infection in this.infections)
+                {
+                    // Scale current
+                    infection.transform.localScale = new Vector2(progress, progress);
+                }
             }
         }
+        catch (MissingReferenceException) { };
     }
 
     // Make the virus free
@@ -160,17 +161,19 @@ public class CellBehavior : MonoBehaviour
     // Update
     void Update()
     {
-        // Animate the timer
-        if (this.incubationTime > 0)
-        {
-            // Subtract the delta time
-            this.incubationTime -= Time.deltaTime;
+        // If is infected
+        if (this.IsInfected()) { 
+            // Update elapsed time
+            this.elapsed += Time.deltaTime;
 
-            // Update infections
-            if (this.IsInfected()) this.UpdateInfections();
+            // Calc the incubation time
+            float incubationTime = Enviroment.CalcIncubation();
 
-            // Check the life
-            if (this.incubationTime <= 0)
+            // Update infection status
+            this.UpdateInfections(incubationTime);
+
+            // Check for finish incubation
+            if (this.elapsed > incubationTime)
             {
                 // Free the virus
                 this.FreeVirus();

@@ -49,7 +49,8 @@ public class Mover : MonoBehaviour
     }
 
     // Move the object relative at parent
-    public void MoveLocal() {
+    public void MoveLocal()
+    {
         // Get the renderer
         Renderer renderer = this.GetComponent<Renderer>();
 
@@ -110,8 +111,9 @@ public class Mover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Set the mover velocity
-        this.bmv.SetVelocity(this.Velocity);
+        // Calc velocity by enviroment status and assign to bezier
+        float velocity = Enviroment.CalcVelocity(this.Velocity);
+        this.bmv.SetVelocity(velocity);
 
         // Select case
         switch (this.mode)

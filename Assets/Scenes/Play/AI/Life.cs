@@ -7,7 +7,7 @@ public class Life : MonoBehaviour
     //-----------------------------------------
     // Constants
 
-    private const float FADE_DURATION = 2f;
+    private const float FADE_DURATION = 1f;
 
 
     //-----------------------------------------
@@ -26,6 +26,8 @@ public class Life : MonoBehaviour
 
     private float life = 0.0f;          // The life of virus in seconds
     private bool isDie = false;         // Trigger
+
+    private float fade = 0.0f;          // The fade duration in seconds
 
 
     //-----------------------------------------
@@ -53,6 +55,9 @@ public class Life : MonoBehaviour
 
             // Free cell
             Destroy(this.gameObject, FADE_DURATION);
+
+            // Start the fade-out
+            this.fade = FADE_DURATION;
         }
     }
 
@@ -73,9 +78,10 @@ public class Life : MonoBehaviour
     // Public methods
 
     // Kill
-    public void Kill() { 
+    public void Kill()
+    {
         // Set the life to die duration
-        this.life = FADE_DURATION;
+        this.life = 0;
     }
 
 
@@ -91,29 +97,32 @@ public class Life : MonoBehaviour
     }
 
     // When start
-    void Start() {
+    void Start()
+    {
         // Calc the life of this virus
-        this.life = this.AverageLife + Random.Range(-this.DeltaLife, this.DeltaLife) + FADE_DURATION;
+        this.life = this.AverageLife + Random.Range(-this.DeltaLife, this.DeltaLife);
     }
 
     // Update
     void Update()
     {
-        // Animate the timer
-        if (this.life > 0)
+        // Subtract the delta time
+        this.life -= Time.deltaTime;
+
+        // Check the life
+        if (Enviroment.CalcLife(this.life) <= 2 && !this.isDie)
         {
+            // Make a die
+            this.Die();
+        }
+
+        // Fade-out
+        if (this.fade > 0) {
             // Subtract the delta time
-            this.life -= Time.deltaTime;
+            this.fade -= Time.deltaTime;
 
-            // Check the life
-            if (life <= FADE_DURATION)
-            {
-                // Make a die
-                this.Die();
-
-                // Apply alpha out
-                this.ApplyAlpha(life);
-            }
+            // Apply alpha out
+            this.ApplyAlpha(this.fade);
         }
     }
 
