@@ -29,5 +29,10 @@ NB: under zero degree the ecosystem is stopped but cells and virus not die becou
 # Victory
 The game finish when all virus are died!!!
 
+# Istallation
+In the main directory you have a SCV.apk for install the app on a Android smartphone.
+If you have Unity 3D (free version available on site) clone the project and run Unity.
+
+
 THANKS
 Samuele
