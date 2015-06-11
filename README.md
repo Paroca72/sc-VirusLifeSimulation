@@ -14,7 +14,7 @@ All (or almost) the parameters that drive the AI are settable throw class named 
 The virus and the cells move around the screen.
 The movement of cells is very slow instead the virus are more quickly.
 
-When virus touch cell the virus remains attached to it and try to inject a infection.
+When virus touch cell the virus remains attached to it for a while and try to inject a infection.
 The number of passed infection change from 0 to a number specified in the Settings.
 
 After a cell is infected you will see the infection grow into the cell for a incubation period.
