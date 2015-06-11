@@ -7,7 +7,7 @@ Now the target is Android but Unity allow to publish in almost all formats.
 
 # Logic
 The logic of a virus is very simple. 
-When the virus touch the cell the virus inject its genetic code inside cell and after a period of incubation the cell die and new virus come out.
+When the virus touch the cell the virus inject its genetic code inside it, after a period of incubation the cell die and a new virus come out.
 All (or almost) the parameters that drive the AI are settable throw class named Settings.
 
 # Behavior
