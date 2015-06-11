@@ -3,6 +3,8 @@ This is a Virus Life Simulation.
 The application was created with Unity 3D and C#. 
 Now the target is Android but Unity allow to publish in almost all formats.
 
+![ScreenShot](http://www.toohook.it/public/1.jpg)
+
 # Logic
 The logic of a virus is very simple. 
 When the virus touch the cell the virus inject its genetic code inside cell and after a period of incubation the cell die and new virus come out.
