@@ -15,7 +15,7 @@ The virus and the cells move around the screen.
 The movement of cells is very slow instead the virus are more quickly.
 
 When virus touch cell the virus remains attached to it for a while and try to inject a infection.
-The number of passed infection change from 0 to a number specified in the Settings.
+The number of passed infections change from zero to a number specified in the Settings.
 
 After a cell is infected you will see the infection grow into the cell for a incubation period.
 The cell die and the new virus come out and start to go around the screen.
@@ -23,10 +23,10 @@ The cell die and the new virus come out and start to go around the screen.
 # Enviroment
 The enviroment influence the life of ecosystem.
 
-- TEMPERATURE -> influence the cells/virus movement velocity and life duration
+- TEMPERATURE -> influence the cells/virus movement velocity and the life duration
 - pH -> influence the incubation period and the cells/virus life duration
 
-NB: under zero degree the ecosystem is stopped but cells and virus not die becouse they are ibernate :-)
+NB: under zero degree the ecosystem is stopped but cells and virus not die because they are ibernate :-)
 
 # Victory
 HO HAVE! But the game finish when all virus are died.
