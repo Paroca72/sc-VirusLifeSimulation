@@ -37,4 +37,3 @@ If you have Unity 3D (free version available on site) clone the project and run 
 
 
 THANKS
-Samuele
