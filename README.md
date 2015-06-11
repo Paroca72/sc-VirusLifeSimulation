@@ -35,5 +35,7 @@ HO HAVE! But the game finish when all virus are died.
 In the main directory you have a SCV.apk for install the app on a Android smartphone.
 If you have Unity 3D (free version available on site) clone the project and run Unity.
 
+Tested on Samsung Galaxy S4 mini
+
 
 THANKS
