@@ -29,7 +29,7 @@ The enviroment influence the life of ecosystem.
 NB: under zero degree the ecosystem is stopped but cells and virus not die because they are ibernate :-)
 
 # Victory
-HO HAVE! But the game finish when all virus are died.
+NO HAVE! But the game finish when all virus are died.
 
 # Istallation
 In the main directory you have a SCV.apk for install the app on a Android smartphone.
