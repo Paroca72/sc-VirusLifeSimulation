@@ -1,4 +1,4 @@
-# SC-Virus-Life-Simulation
+# sc-VirusLifeSimulation
 This is a Virus Life Simulation. 
 It's only an Unity 3D exercise made in two days.
 Now the target is Android but Unity allow to publish in almost all formats.
