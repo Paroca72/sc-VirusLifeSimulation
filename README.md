@@ -1,15 +1,15 @@
-<img src="https://github.com/Paroca72/sc-VirusLifeSimulation/blob/master/VLS.jpg" align="right" />
 # sc-VirusLifeSimulation
+<img src="https://github.com/Paroca72/sc-VirusLifeSimulation/blob/master/VLS.jpg" align="right" />
 This is a Virus Life Simulation. 
 It's only an Unity 3D exercise made in two days.
 Now the target is Android but Unity allow to publish in almost all formats.
 
-# Logic
+## Logic
 The logic of a virus is very simple. 
 When the virus touch the cell the virus inject its genetic code inside it, after a period of incubation the cell die and a new virus come out.
 All (or almost) the parameters that drive the AI are settable throw class named Settings.
 
-# Behavior
+## Behavior
 The virus and the cells move around the screen.
 The movement of cells is very slow instead the virus are more quickly.
 
@@ -19,7 +19,7 @@ The number of passed infections change from zero to a number specified in the Se
 After a cell is infected you will see the infection grow into the cell for a incubation period.
 The cell die and the new virus come out and start to go around the screen.
 
-# Enviroment
+## Enviroment
 The enviroment influence the life of ecosystem.
 
 - TEMPERATURE -> influence the cells/virus movement velocity and the life duration
@@ -27,10 +27,10 @@ The enviroment influence the life of ecosystem.
 
 NB: under zero degree the ecosystem is stopped but cells and virus not die because they are ibernate :-)
 
-# Victory
+## Victory
 NO HAVE! But the game finish when all virus are died.
 
-# Istallation
+## Istallation
 In the main directory you have a SCV.apk for install the app on a Android smartphone.
 If you have Unity 3D (free version available on site) clone the project and run Unity.
 
