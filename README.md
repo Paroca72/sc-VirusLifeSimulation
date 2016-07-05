@@ -1,9 +1,8 @@
+<img src="https://github.com/Paroca72/sc-VirusLifeSimulation/blob/master/VLS.jpg" align="right" />
 # sc-VirusLifeSimulation
 This is a Virus Life Simulation. 
 It's only an Unity 3D exercise made in two days.
 Now the target is Android but Unity allow to publish in almost all formats.
-
-![ScreenShot](http://www.toohook.it/public/1.jpg)
 
 # Logic
 The logic of a virus is very simple. 
